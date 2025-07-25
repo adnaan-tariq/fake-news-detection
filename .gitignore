@@ -31,8 +31,8 @@ ENV/
 best_model.pt
 
 # Data files (too large for GitHub)
-data/raw/
-data/processed/
+# data/raw/
+# data/processed/
 *.csv
 
 # Jupyter Notebook
