@@ -30,9 +30,10 @@ ENV/
 *.pth
 best_model.pt
 
-# Data files
+# Data files (too large for GitHub)
 data/raw/
 data/processed/
+*.csv
 
 # Jupyter Notebook
 .ipynb_checkpoints
