@@ -1,40 +1,33 @@
----
-title: Fake News Detection
-emoji: 📰
-colorFrom: blue
-colorTo: indigo
-sdk: streamlit
-sdk_version: "1.31.1"
-app_file: app.py
-pinned: false
+# TruthCheck: Fake News Detection with Fine-Tuned BERT
+
+TruthCheck is an advanced fake news detection system leveraging a hybrid deep learning architecture. It combines a pre-trained BERT-base-uncased model with a BiLSTM and attention mechanism, fully fine-tuned on a curated dataset of real and fake news. The project includes robust preprocessing, feature extraction, model training, evaluation, and a Streamlit web app for interactive predictions.
+
 ---
 
-# Hybrid Fake News Detection Model
+## 🚀 Features
+- **Hybrid Model:** BERT-base-uncased + BiLSTM + Attention
+- **Full Fine-Tuning:** All layers of BERT and additional layers are trainable and optimized on the fake news dataset
+- **Comprehensive Preprocessing:** Cleaning, tokenization, lemmatization, and more
+- **Training & Evaluation:** Scripts for training, validation, and test evaluation
+- **Interactive App:** Streamlit web app for real-time news classification
+- **Ready for Deployment:** Easily extendable for research or production
 
-A hybrid deep learning model for fake news detection using BERT and BiLSTM with attention mechanism. This project was developed as part of the Data Mining Laboratory course under the guidance of Dr. Kirti Kumari.
+---
 
-## Project Overview
+## 🧠 Model Details
+- **Base Model:** [BERT-base-uncased](https://huggingface.co/bert-base-uncased)
+- **Architecture:**
+  - BERT encoder (pre-trained, all layers fine-tuned)
+  - BiLSTM layer for sequential context
+  - Attention mechanism for interpretability
+  - Fully connected classification head
+- **Fine-Tuning Technique:**
+  - All BERT layers are unfrozen and updated during training (full fine-tuning)
+  - Additional layers (BiLSTM, attention, classifier) are trained from scratch
 
-This project implements a state-of-the-art fake news detection system that combines the power of BERT (Bidirectional Encoder Representations from Transformers) with BiLSTM (Bidirectional Long Short-Term Memory) and attention mechanisms. The model is designed to effectively identify fake news articles by analyzing their textual content and linguistic patterns.
+---
 
-## Data and Model Files
-
-The project uses the following datasets and model files:
-
-### Datasets
-- Raw and processed datasets are available at: [Data Files](https://drive.google.com/drive/folders/1uFtWVEjqupSGV7_6sYAxPG52Je1MAigh?usp=sharing)
-  - Contains both raw and processed versions of the datasets
-  - Includes LIAR and Kaggle Fake News datasets
-  - Preprocessed versions ready for training
-
-### Model Files
-- Trained model checkpoints are available at: [Model Files](https://drive.google.com/drive/folders/1d1EXjLlYof56yEa9F6qFDPKqO359vnRw?usp=sharing)
-  - Contains saved model weights
-  - Includes best model checkpoints
-  - Model evaluation results
-
-## Project Structure
-
+## 📂 Project Structure
 ```
 .
 ├── data/
@@ -43,127 +36,99 @@ The project uses the following datasets and model files:
 ├── models/
 │   ├── saved/        # Saved model checkpoints
 │   └── checkpoints/  # Training checkpoints
+├── app.py                  # Streamlit app entry point
 ├── src/
-│   ├── config/       # Configuration files
-│   ├── data/         # Data processing modules
-│   ├── models/       # Model architecture
-│   ├── utils/        # Utility functions
-│   └── visualization/# Visualization modules
-├── tests/            # Unit tests
-├── notebooks/        # Jupyter notebooks
-└── visualizations/   # Generated plots and graphs
+│   ├── app.py              # Main app logic
+│   ├── config/             # Configuration files
+│   ├── data/               # Data processing code (not datasets)
+│   ├── models/             # Model architecture and training code
+│   ├── visualization/      # Plotting and visualization scripts
+│   └── train.py            # Model training script
+├── requirements.txt        # Python dependencies
+├── README.md               # Project documentation
+└── .gitignore
 ```
 
-## Features
+---
 
-- Hybrid architecture combining BERT and BiLSTM
-- Attention mechanism for better interpretability
-- Comprehensive text preprocessing pipeline
-- Support for multiple feature extraction methods
-- Early stopping and model checkpointing
-- Detailed evaluation metrics
-- Interactive visualizations of model performance
-- Support for multiple datasets (LIAR, Kaggle Fake News)
+## 📥 Download Data and Model
 
-## Installation
+**Raw and Processed Datasets:**  
+[Google Drive Link](https://drive.google.com/drive/folders/1tAhWhhhDes5uCdcnMLmJdFBSGWFFl55M?usp=sharing)
 
-1. Clone the repository:
+**Trained Model(s):**  
+[Google Drive Link](https://drive.google.com/drive/folders/1VEFa0y_vW6AzT5x0fRwmX8shoBhUGd7K?usp=sharing)
+
+### **Instructions:**
+1. Download the datasets and place them in the `data/` directory:
+    - `data/raw/` for raw files
+    - `data/processed/` for processed files
+2. Download the trained model (e.g., `final_model.pt` or `best_model.pt`) and place it in `models/saved/`.
+
+---
+
+## ⚙️ Setup
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/adnaan-tariq/fake-news-detection.git
+    cd fake-news-detection
+    ```
+2. **Create and activate a virtual environment:**
+    ```bash
+    python -m venv venv
+    .\venv\Scripts\activate
+    ```
+3. **Install dependencies:**
+    ```bash
+    pip install --upgrade pip
+    pip install -r requirements.txt
+    ```
+
+---
+
+## 🏃‍♂️ Usage
+
+### **Train the Model**
+If you want to train from scratch (after placing the data as described above):
 ```bash
-git clone https://github.com/yourusername/fake-news-detection.git
-cd fake-news-detection
+python -m src.train
 ```
 
-2. Create a virtual environment:
+### **Run the Streamlit App**
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+streamlit run app.py
 ```
+- Open [http://localhost:8501](http://localhost:8501) in your browser.
 
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+### **Test the Model**
+- The app and scripts will use the model in `models/saved/final_model.pt` by default.
+- For custom inference, see the example in `src/app.py` or ask for a sample script.
 
-## Usage
+---
 
-1. Download the required files:
-   - Download datasets from the [Data Files](https://drive.google.com/drive/folders/1uFtWVEjqupSGV7_6sYAxPG52Je1MAigh?usp=sharing) link
-   - Download pre-trained models from the [Model Files](https://drive.google.com/drive/folders/1d1EXjLlYof56yEa9F6qFDPKqO359vnRw?usp=sharing) link
-   - Place the files in their respective directories as shown in the project structure
+## 📊 Results
+- **Validation Accuracy:** ~93%
+- **Validation F1 Score:** ~0.93
+- (See training logs and visualizations for more details.)
 
-2. Prepare your dataset:
-   - Place your dataset in the `data/raw` directory
-   - The dataset should have at least two columns: 'text' and 'label'
-   - Supported formats: CSV, TSV
+---
 
-3. Train the model:
-```bash
-python src/train.py
-```
+## 📦 Data & Model Policy
+- **Data and model files are NOT included in this repository.**
+- Please download them from the provided Google Drive links above.
 
-4. Model evaluation metrics and visualizations will be generated in the `visualizations` directory
+---
 
-## Model Architecture
+## 🤝 Contributing
+Pull requests and suggestions are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-The model combines:
-- BERT for contextual embeddings
-- BiLSTM for sequence modeling
-- Attention mechanism for focusing on important parts
-- Classification head for final prediction
+---
 
-### Key Components:
-- **BERT Layer**: Extracts contextual word embeddings
-- **BiLSTM Layer**: Captures sequential patterns
-- **Attention Layer**: Identifies important text segments
-- **Classification Head**: Makes final prediction
+## 📄 License
+This project is licensed under the MIT License.
 
-## Configuration
+---
 
-Key parameters can be modified in `src/config/config.py`:
-- Model hyperparameters
-- Training parameters
-- Data processing settings
-- Feature extraction options
-
-## Performance Metrics
-
-The model is evaluated using:
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- Confusion Matrix
-
-## Future Improvements
-
-- [ ] Add support for image/video metadata
-- [ ] Implement real-time detection
-- [ ] Add social graph analysis
-- [ ] Improve model interpretability
-- [ ] Add API endpoints for inference
-- [ ] Support for multilingual fake news detection
-- [ ] Integration with fact-checking databases
-
-## Acknowledgments
-
-I would like to express our sincere gratitude to **Dr. Kirti Kumari** for her invaluable guidance and support throughout the development of this project. Her expertise in data mining and machine learning has been instrumental in shaping this work.
-
-Special thanks to:
-- Open-source community for their excellent tools and libraries
-- Dataset providers (LIAR, Kaggle)
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-
-For any queries or suggestions, please feel free to reach out to me. 
+## 🙋‍♂️ Contact
+For questions or support, contact [Adnan Tariq](mailto:adnantariq966@gmail.com). 
