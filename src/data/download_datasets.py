@@ -21,54 +21,7 @@ class DatasetDownloader:
         os.makedirs(self.raw_data_dir, exist_ok=True)
         os.makedirs(self.processed_data_dir, exist_ok=True)
     
-    # def download_kaggle_dataset(self):
-    #     """Download dataset from Kaggle."""
-    #     logger.info("Downloading dataset from Kaggle...")
-        
-    #     # Kaggle dataset ID
-    #     dataset_id = "clmentbisaillon/fake-and-real-news-dataset"
-        
-    #     try:
-    #         kaggle.api.dataset_download_files(
-    #             dataset_id,
-    #             path=self.raw_data_dir,
-    #             unzip=True
-    #         )
-    #         logger.info("Successfully downloaded dataset from Kaggle")
-    #     except Exception as e:
-    #         logger.error(f"Error downloading from Kaggle: {str(e)}")
-    #         logger.info("Please download the dataset manually from: https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset")
-    
-    # def download_liar(self):
-    #     """Download LIAR dataset."""
-    #     logger.info("Downloading LIAR dataset...")
-        
-    #     # URL for LIAR dataset
-    #     url = "https://www.cs.ucsb.edu/~william/data/liar_dataset.zip"
-    #     output_path = self.raw_data_dir / "liar_dataset.zip"
-        
-    #     if not output_path.exists():
-    #         try:
-    #             response = requests.get(url, stream=True)
-    #             total_size = int(response.headers.get('content-length', 0))
-                
-    #             with open(output_path, 'wb') as f, tqdm(
-    #                 desc="Downloading LIAR dataset",
-    #                 total=total_size,
-    #                 unit='iB',
-    #                 unit_scale=True
-    #             ) as pbar:
-    #                 for data in response.iter_content(chunk_size=1024):
-    #                     size = f.write(data)
-    #                     pbar.update(size)
-                
-    #             # Extract the zip file
-    #             with zipfile.ZipFile(output_path, 'r') as zip_ref:
-    #                 zip_ref.extractall(self.raw_data_dir / "liar")
-    #         except Exception as e:
-    #             logger.error(f"Error downloading LIAR dataset: {str(e)}")
-    #             logger.info("Please download the LIAR dataset manually from: https://www.cs.ucsb.edu/~william/data/liar_dataset.zip")
-    
+
     def process_kaggle_dataset(self):
         """Process the Kaggle dataset."""
         logger.info("Processing Kaggle dataset...")
@@ -148,10 +101,6 @@ class DatasetDownloader:
 
 def main():
     downloader = DatasetDownloader()
-    
-    # Download datasets
-    # downloader.download_kaggle_dataset()
-    # downloader.download_liar()
     
     # Process datasets
     downloader.process_kaggle_dataset()
