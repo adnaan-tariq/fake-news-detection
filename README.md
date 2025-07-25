@@ -1,6 +1,6 @@
 # TruthCheck: Fake News Detection with Fine-Tuned BERT
 
-TruthCheck is an advanced fake news detection system leveraging a hybrid deep learning architecture. It combines a pre-trained BERT-base-uncased model with a BiLSTM and attention mechanism, fully fine-tuned on a curated dataset of real and fake news. The project includes robust preprocessing, feature extraction, model training, evaluation, and a Streamlit web app for interactive predictions.
+TruthCheck is an **open source** fake news detection system leveraging a hybrid deep learning architecture. It combines a pre-trained **BERT**-base-uncased model with a BiLSTM and attention mechanism, **fully fine-tuned** on a curated **_dataset of real and fake news_**. The project includes robust preprocessing, feature extraction, model training, evaluation, and a Streamlit web app for interactive predictions.
 
 ---
 
@@ -10,7 +10,18 @@ TruthCheck is an advanced fake news detection system leveraging a hybrid deep le
 - **Comprehensive Preprocessing:** Cleaning, tokenization, lemmatization, and more
 - **Training & Evaluation:** Scripts for training, validation, and test evaluation
 - **Interactive App:** Streamlit web app for real-time news classification
+- **Live Demo:** Deployed on Hugging Face Spaces for immediate testing
 - **Ready for Deployment:** Easily extendable for research or production
+
+## 🌐 Live Demo
+
+**Try TruthCheck now:** [https://huggingface.co/spaces/adnaan05/TrueCheck](https://huggingface.co/spaces/adnaan05/TrueCheck)
+
+- **Platform:** Hugging Face Spaces
+- **Framework:** Streamlit
+- **Status:** Live and accessible
+- **Features:** Real-time fake news detection with confidence scores
+
 
 ---
 
@@ -51,6 +62,15 @@ TruthCheck is an advanced fake news detection system leveraging a hybrid deep le
 
 ---
 
+## 📥 Datasets Used (with References)
+
+- **Kaggle Fake and Real News Dataset:**  
+  [Kaggle Dataset Link](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset)
+- **LIAR Dataset:**  
+  [https://www.cs.ucsb.edu/~william/data/liar_dataset.zip](https://www.cs.ucsb.edu/~william/data/liar_dataset.zip)
+
+---
+
 ## 📥 Download Data and Model
 
 **Raw and Processed Datasets:**  
@@ -67,7 +87,7 @@ TruthCheck is an advanced fake news detection system leveraging a hybrid deep le
 
 ---
 
-## ⚙️ Setup
+## ⚙️ Setup & Deployment Instructions
 
 1. **Clone the repository:**
     ```bash
@@ -111,6 +131,16 @@ streamlit run app.py
 - **Validation Accuracy:** ~93%
 - **Validation F1 Score:** ~0.93
 - (See training logs and visualizations for more details.)
+
+---
+
+## 📦 Open Source & Reproducibility Policy
+- **All code is original or properly credited.**
+- **All code for the ML model training process is included and open source.**
+- **References to all datasets used are provided above.**
+- **Source code for the full web application is included.**
+- **Setup and deployment instructions are provided in this README.**
+- **This project is fully open-sourced and reproducible, in line with hackathon requirements.**
 
 ---
 
