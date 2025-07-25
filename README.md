@@ -15,7 +15,7 @@ TruthCheck is an **open source** fake news detection system leveraging a hybrid 
 
 ## 🌐 Live Demo
 
-**Try TruthCheck now:** [https://huggingface.co/spaces/adnaan05/TrueCheck](https://huggingface.co/spaces/adnaan05/TrueCheck)
+**Try TruthCheck now:** [https://huggingface.co/spaces/adnaan05/TruthCheck](https://huggingface.co/spaces/adnaan05/TruthCheck)
 
 - **Platform:** Hugging Face Spaces
 - **Framework:** Streamlit
