@@ -3,7 +3,11 @@ __pycache__/
 *.pyc
 
 # Data
+data/
 
+!src/data/
+
+*.pt
 # Environments
 venv/
 .env
