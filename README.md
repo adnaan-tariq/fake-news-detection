@@ -1,164 +1,177 @@
 # TruthCheck: Fake News Detection with Fine-Tuned BERT
 
-TruthCheck is an **open source** fake news detection system leveraging a hybrid deep learning architecture. It combines a pre-trained **BERT**-base-uncased model with a BiLSTM and attention mechanism, **fully fine-tuned** on a curated **_dataset of real and fake news_**. The project includes robust preprocessing, feature extraction, model training, evaluation, and a Streamlit web app for interactive predictions.
-
----
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Framework](https://img.shields.io/badge/Framework-Streamlit-orange)
+![Model](https://img.shields.io/badge/Model-BERT--BiLSTM--Attention-ff69b4)
+![Status](https://img.shields.io/badge/Status-Production-brightgreen)
+![Last Commit](https://img.shields.io/github/last-commit/adnaan-tariq/fake-news-detection)
+![Repo Size](https://img.shields.io/github/repo-size/adnaan-tariq/fake-news-detection)
+![Open Issues](https://img.shields.io/github/issues/adnaan-tariq/fake-news-detection)
+![Pull Requests](https://img.shields.io/github/issues-pr/adnaan-tariq/fake-news-detection)
+![Forks](https://img.shields.io/github/forks/adnaan-tariq/fake-news-detection?style=social)
+![Stars](https://img.shields.io/github/stars/adnaan-tariq/fake-news-detection?style=social)
+![Contributors](https://img.shields.io/github/contributors/adnaan-tariq/fake-news-detection)
+[![Live Demo](https://img.shields.io/badge/🧪%20Try%20on-HuggingFace-blue?logo=huggingface)](https://huggingface.co/spaces/adnaan05/TruthCheck)
 
 ## 🚀 Features
-- **Hybrid Model:** BERT-base-uncased + BiLSTM + Attention
-- **Full Fine-Tuning:** All layers of BERT and additional layers are trainable and optimized on the fake news dataset
-- **Comprehensive Preprocessing:** Cleaning, tokenization, lemmatization, and more
-- **Training & Evaluation:** Scripts for training, validation, and test evaluation
-- **Interactive App:** Streamlit web app for real-time news classification
-- **Live Demo:** Deployed on Hugging Face Spaces for immediate testing
-- **Ready for Deployment:** Easily extendable for research or production
+- 🤖 **Hybrid Model:** BERT + BiLSTM + Attention
+- 🔄 **Full Fine-Tuning:** All layers of BERT and additional layers
+- 🧹 **Robust Preprocessing:** Tokenization, lemmatization, cleaning
+- 🧪 **Real-time Prediction App:** Built with Streamlit
+- 🌍 **Live Demo on Hugging Face Spaces**
+- 🚀 **Plug-and-Play Deployment:** Research-ready, production-capable
 
 ## 🌐 Live Demo
 
-**Try TruthCheck now:** [https://huggingface.co/spaces/adnaan05/TruthCheck](https://huggingface.co/spaces/adnaan05/TruthCheck)
+👉 [**Click to Launch TruthCheck**](https://huggingface.co/spaces/adnaan05/TruthCheck)
 
-- **Platform:** Hugging Face Spaces
-- **Framework:** Streamlit
-- **Status:** Live and accessible
+- **Platform:** Hugging Face Spaces  
+- **Framework:** Streamlit  
+- **Status:** ✅ Live  
 - **Features:** Real-time fake news detection with confidence scores
-
-
----
 
 ## 🧠 Model Details
 - **Base Model:** [BERT-base-uncased](https://huggingface.co/bert-base-uncased)
 - **Architecture:**
-  - BERT encoder (pre-trained, all layers fine-tuned)
-  - BiLSTM layer for sequential context
-  - Attention mechanism for interpretability
-  - Fully connected classification head
-- **Fine-Tuning Technique:**
-  - All BERT layers are unfrozen and updated during training (full fine-tuning)
-  - Additional layers (BiLSTM, attention, classifier) are trained from scratch
-
----
+  - 🧠 BERT Encoder (pre-trained, fine-tuned)
+  - 🔁 BiLSTM for sequence representation
+  - 👁️ Attention for interpretability
+  - 🧮 Fully connected classifier
+- **Training:**
+  - BERT weights are unfrozen and trained
+  - Additional layers initialized and trained from scratch
 
 ## 📂 Project Structure
 ```
 .
 ├── data/
-│   ├── raw/           # Raw datasets
-│   └── processed/     # Processed data
+│   ├── raw/
+│   └── processed/
 ├── models/
-│   ├── saved/        # Saved model checkpoints
-│   └── checkpoints/  # Training checkpoints
-├── app.py                  # Streamlit app entry point
+│   ├── saved/
+│   └── checkpoints/
+├── app.py
 ├── src/
-│   ├── app.py              # Main app logic
-│   ├── config/             # Configuration files
-│   ├── data/               # Data processing code (not datasets)
-│   ├── models/             # Model architecture and training code
-│   ├── visualization/      # Plotting and visualization scripts
-│   └── train.py            # Model training script
-├── requirements.txt        # Python dependencies
-├── README.md               # Project documentation
+│   ├── app.py
+│   ├── config/
+│   ├── data/
+│   ├── models/
+│   ├── visualization/
+│   └── train.py
+├── requirements.txt
+├── README.md
 └── .gitignore
 ```
 
----
+## 📥 Datasets Used
+- 🗂️ [Kaggle Fake and Real News Dataset](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset)
+- 🗃️ [LIAR Dataset (UCSB)](https://www.cs.ucsb.edu/~william/data/liar_dataset.zip)
 
-## 📥 Datasets Used (with References)
+## 📦 Download Data and Model
 
-- **Kaggle Fake and Real News Dataset:**  
-  [Kaggle Dataset Link](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset)
-- **LIAR Dataset:**  
-  [https://www.cs.ucsb.edu/~william/data/liar_dataset.zip](https://www.cs.ucsb.edu/~william/data/liar_dataset.zip)
+- **Datasets:** [📁 Google Drive](https://drive.google.com/drive/folders/1tAhWhhhDes5uCdcnMLmJdFBSGWFFl55M?usp=sharing)
+- **Trained Models:** [📁 Google Drive](https://drive.google.com/drive/folders/1VEFa0y_vW6AzT5x0fRwmX8shoBhUGd7K?usp=sharing)
 
----
+### Instructions:
+- Place raw/processed data under `data/`
+- Place final model file (e.g. `final_model.pt`) in `models/saved/`
 
-## 📥 Download Data and Model
+## ⚙️ Setup & Installation
 
-**Raw and Processed Datasets:**  
-[Google Drive Link](https://drive.google.com/drive/folders/1tAhWhhhDes5uCdcnMLmJdFBSGWFFl55M?usp=sharing)
+### 🔧 Step 1: Clone the Repository
+```bash
+git clone https://github.com/adnaan-tariq/fake-news-detection.git
+cd fake-news-detection
+```
 
-**Trained Model(s):**  
-[Google Drive Link](https://drive.google.com/drive/folders/1VEFa0y_vW6AzT5x0fRwmX8shoBhUGd7K?usp=sharing)
+### 🧱 Step 2: Create & Activate a Virtual Environment
 
-### **Instructions:**
-1. Download the datasets and place them in the `data/` directory:
-    - `data/raw/` for raw files
-    - `data/processed/` for processed files
-2. Download the trained model (e.g., `final_model.pt` or `best_model.pt`) and place it in `models/saved/`.
+#### 💻 On Windows
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
 
----
+#### 🍎 On macOS/Linux
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-## ⚙️ Setup & Deployment Instructions
-
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/adnaan-tariq/fake-news-detection.git
-    cd fake-news-detection
-    ```
-2. **Create and activate a virtual environment:**
-    ```bash
-    python -m venv venv
-    .\venv\Scripts\activate
-    ```
-3. **Install dependencies:**
-    ```bash
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-
----
+### 📦 Step 3: Install Dependencies
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
 
 ## 🏃‍♂️ Usage
 
-### **Train the Model**
-If you want to train from scratch (after placing the data as described above):
+### 🧠 Train the Model
 ```bash
 python -m src.train
 ```
 
-### **Run the Streamlit App**
+### 🌐 Run the Streamlit App
 ```bash
 streamlit run app.py
 ```
-- Open [http://localhost:8501](http://localhost:8501) in your browser.
 
-### **Test the Model**
-- The app and scripts will use the model in `models/saved/final_model.pt` by default.
-- For custom inference, see the example in `src/app.py` or ask for a sample script.
-
----
+Then open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ## 📊 Results
 - **Validation Accuracy:** ~93%
-- **Validation F1 Score:** ~0.93
-- (See training logs and visualizations for more details.)
-
----
-
-## 📦 Open Source & Reproducibility Policy
-- **All code is original or properly credited.**
-- **All code for the ML model training process is included and open source.**
-- **References to all datasets used are provided above.**
-- **Source code for the full web application is included.**
-- **Setup and deployment instructions are provided in this README.**
-- **This project is fully open-sourced and reproducible, in line with hackathon requirements.**
-
----
-
-## 📦 Data & Model Policy
-- **Data and model files are NOT included in this repository.**
-- Please download them from the provided Google Drive links above.
-
----
+- **F1 Score:** ~0.93  
+📈 See `src/visualization/` for training logs and plots.
 
 ## 🤝 Contributing
-Pull requests and suggestions are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
----
+We 💖 contributions from the open-source community!
+
+### How to Contribute:
+1. Fork this repository
+2. Create a new branch:  
+   `git checkout -b feature-name`
+3. Make your changes and commit:
+   ```bash
+   git add .
+   git commit -m "Add feature: description"
+   ```
+4. Push and open a pull request:
+   ```bash
+   git push origin feature-name
+   ```
+
+### You can:
+- Fix bugs 🐞
+- Improve documentation 📚
+- Add new features 🌟
+- Optimize model or code 🧠
+- Improve UI/UX or frontend 🎨
+
+> 🙌 All contributions will be **acknowledged** and **appreciated**!
+
+## 💡 Open Source & Reproducibility
+
+- ✅ Fully open-sourced under MIT License
+- ✅ Training, evaluation, and app code included
+- ✅ Datasets referenced externally
+- ✅ Reproducible results with provided files
+- ✅ Built for real-world use and hackathons
 
 ## 📄 License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
----
+## 📬 Contact
 
-## 🙋‍♂️ Contact
-For questions or support, contact [Adnan Tariq](mailto:adnantariq966@gmail.com). 
+For feedback, questions, or collaborations:
+- 📧 [Muhammad Adnan Tariq](mailto:adnantariq966@gmail.com)
+- 📧 [Muhammad Khaqan Nasir](mailto:khaqannasir01@gmail.com)
+
+## 💖 Hackathon Submission
+
+Made with ❤️ by **Muhammad Adnan Tariq** and **Muhammad Khaqan Nasir**  
+🎯 Submitted to: **_Build Real ML Web Apps: No Wrappers, Just Real Models_**  
+🏢 Hosted by: [Devpost](https://devpost.com)  
+🧠 Powered by: **BERT + BiLSTM + Attention + Streamlit**  
+🚀 Built with a passion for **truth**, **tech**, and **open-source**.
